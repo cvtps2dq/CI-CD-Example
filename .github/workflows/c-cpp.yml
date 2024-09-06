@@ -32,6 +32,8 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: upload
+    - name: Check Delivery
+      run: ls -a
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
