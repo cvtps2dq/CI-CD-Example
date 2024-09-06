@@ -21,52 +21,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: upload
-        path: name: C/C++ CI
-
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: cmake-build
-      run: cmake CMakeLists.txt
-    - name: make
-      run: make
-    - name: upload
-      uses: actions/upload-artifact@v4
-      with:
-        name: upload
-        path: CI_CD_EXAMPLEname: C/C++ CI
-
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: cmake-build
-      run: cmake CMakeLists.txt
-    - name: make
-      run: make
-    - name: upload
-      uses: actions/upload-artifact@v4
-      with:
-        name: upload
         path: /home/runner/work/CI-CD-Example/CI-CD-Example
 
   release:
@@ -80,30 +34,5 @@ jobs:
         tag: ${{ runner.os }}-v${{ github.run_number }}
         artifacts: "CI_CD_EXAMPLE"
         body: "Release with CI/CD"
-      
 
-  release:
-    needs: build  # This job will run only after the build job completes
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ runner.os }}-v${{ github.run_number }}
-        artifacts: "CI_CD_EXAMPLE"
-        body: "Release with CI/CD"
-        
-
-  release:
-    needs: build  # This job will run only after the build job completes
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ runner.os }}-v${{ github.run_number }}
-        artifacts: "CI_CD_EXAMPLE"
-        body: "Release with CI/CD"
         
