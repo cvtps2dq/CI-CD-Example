@@ -33,12 +33,12 @@ jobs:
       with:
         name: upload
     - name: Check Delivery
-      run: ls -a
+      run: '[ -e "CI_CD_Example" ] && echo "Delivery successfull." || echo "Error! Delivery unsuccessfull!"'
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
         tag: ${{ runner.os }}-v${{ github.run_number }}
-        artifacts: "upload.zip"
+        artifacts: "CI_CD_Example"
         body: "Release with CI/CD"
 
         
