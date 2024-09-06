@@ -39,6 +39,4 @@ jobs:
       with:
         tag: ${{ runner.os }}-v${{ github.run_number }}
         artifacts: "CI_CD_Example"
-        body: "Release with CI/CD"
-
-        
+        body: "Release with CI/CD. Run with ./CI_CD_Example in Linux sh. Don't forget to chmod +x !"
