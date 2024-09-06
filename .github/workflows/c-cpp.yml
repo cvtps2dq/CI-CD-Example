@@ -21,8 +21,6 @@ jobs:
   release:
     needs: build  # This job will run only after the build job completes
     runs-on: ubuntu-latest
-    env:
-           RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }} # Access the secret
     steps:
     - uses: actions/checkout@v4
     - name: Create Release
@@ -35,6 +33,9 @@ jobs:
           - ... add release notes here ... 
         draft: false  # Set to true to create a draft release
         prerelease: false  # Set to true to create a prerelease
+        env:
+           ${{ secrets.RELEASE_TOKEN }} # Access the secret
+        
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
