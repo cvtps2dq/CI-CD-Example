@@ -21,7 +21,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: upload
-        path: builds/CI_CD_EXAMPLE
+        path: CI_CD_EXAMPLE
 
   release:
     needs: build  # This job will run only after the build job completes
@@ -32,6 +32,6 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         tag: ${{ runner.os }}-v${{ github.run_number }}
-        artifacts: "build/CI_CD_EXAMPLE"
+        artifacts: "CI_CD_EXAMPLE"
         body: "Release with CI/CD"
         
