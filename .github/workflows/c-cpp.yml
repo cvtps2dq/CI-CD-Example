@@ -28,6 +28,7 @@ jobs:
       with:
         tag_name: ${{ runner.os }}-v${{ github.run_number }}  # Dynamic tag name
         release_name: Release for ${{ runner.os }} - Build ${{ github.run_number }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         body: |
           This release includes the latest build of the project.
           - ... add release notes here ... 
