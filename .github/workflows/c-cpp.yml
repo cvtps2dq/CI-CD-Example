@@ -28,3 +28,4 @@ jobs:
       with:
         artifacts: "CI_CD_Example"
         body: "Release with CI/CD"
+        tag: "Just a simple test"
