@@ -35,7 +35,6 @@ jobs:
           - ... add release notes here ... 
         draft: false  # Set to true to create a draft release
         prerelease: false  # Set to true to create a prerelease
-        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
