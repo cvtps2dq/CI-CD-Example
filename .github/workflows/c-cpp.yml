@@ -36,7 +36,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         tag: ${{ runner.os }}-v${{ github.run_number }}
-        artifacts: "upload"
+        artifacts: "upload.zip"
         body: "Release with CI/CD"
 
         
