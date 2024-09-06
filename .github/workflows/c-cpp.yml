@@ -17,3 +17,24 @@ jobs:
       run: cmake CMakeLists.txt
     - name: make
       run: make
+
+  release:
+    needs: build  # This job will run only after the build job completes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Create Release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ runner.os }}-v${{ github.run_number }}  # Dynamic tag name
+        release_name: Release for ${{ runner.os }} - Build ${{ github.run_number }}
+        body: |
+          This release includes the latest build of the project.
+          - ... add release notes here ... 
+        draft: false  # Set to true to create a draft release
+        prerelease: false  # Set to true to create a prerelease
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: binary
+        path: ./build/CI_CD_Example  # Path to your compiled binary
