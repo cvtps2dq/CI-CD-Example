@@ -161,7 +161,7 @@ int main() {
     delete[] location;
     delete[] cluster;
     delete[] droneA;
-
+    // some change in the code
     return 0;
 }
 
