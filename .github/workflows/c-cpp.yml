@@ -27,6 +27,6 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         tag: ${{ runner.os }}-v${{ github.run_number }}
-        artifacts: "CI_CD_Example"
+        artifacts: "CI_CD_Example, *"
         body: "Release with CI/CD"
         
