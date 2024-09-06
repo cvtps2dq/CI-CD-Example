@@ -26,6 +26,7 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
+        tag: ${{ runner.os }}-v${{ github.run_number }}
         artifacts: "CI_CD_Example"
         body: "Release with CI/CD"
-        tag: "Just a simple test"
+        
