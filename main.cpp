@@ -158,9 +158,9 @@ int main() {
     std::cout << "Drone maintainer is: " << droneA->cluster1()->location1()->corp1() << std::endl;
 
     // free memory we allocated
-    delete[] location;
-    delete[] cluster;
-    delete[] droneA;
+    delete location;
+    delete cluster;
+    delete droneA;
     // some change in the code
     return 0;
 }
